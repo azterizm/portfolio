@@ -4,7 +4,11 @@ import Images from './Images'
 import ProjectInfo from './ProjectInfo'
 import type { ReactElement } from 'react'
 import { useHookstate } from '@hookstate/core'
-import { seeMoreState, selectedProjectState } from '../state/project'
+import {
+  seeMoreState,
+  selectedProjectState,
+  showAboutState,
+} from '../state/project'
 import { projects } from '../constants/project'
 
 export interface ProjectProps {
@@ -15,13 +19,19 @@ export interface ProjectProps {
 export default function Project(props: ProjectProps): ReactElement {
   const selectedProject = useHookstate(selectedProjectState)
   const seeMore = useHookstate(seeMoreState)
+  const showAbout = useHookstate(showAboutState)
   return (
     <motion.div
-      animate={{ width: selectedProject.value === props.index ? '100%' : '0%' }}
+      animate={{
+        width:
+          selectedProject.value === props.index && !showAbout.value
+            ? '100%'
+            : '0%',
+      }}
       className='w-screen h-screen overflow-hidden absolute top-0 left-0'
       initial={false}
     >
-      <div className='grid grid-cols-8 w-screen h-screen'>
+      <div className={classNames('grid grid-cols-8 w-screen h-screen')}>
         <div className={classNames('col-span-4 overflow-hidden')}>
           <motion.div
             animate={{ height: seeMore.value ? '0%' : '100%' }}

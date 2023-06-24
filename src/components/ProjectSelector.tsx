@@ -1,7 +1,11 @@
 import { useHookstate } from '@hookstate/core'
 import { motion } from 'framer-motion'
 import { ReactElement } from 'react'
-import { seeMoreState, selectedProjectState } from '../state/project'
+import {
+  seeMoreState,
+  selectedProjectState,
+  showAboutState,
+} from '../state/project'
 
 export interface ProjectSelectorProps {}
 
@@ -10,9 +14,10 @@ export default function ProjectSelector(
 ): ReactElement {
   const selected = useHookstate(selectedProjectState)
   const seeMore = useHookstate(seeMoreState)
+  const showAbout = useHookstate(showAboutState)
   return (
     <motion.div
-      animate={{ y: seeMore.value ? '100%' : '0%' }}
+      animate={{ y: seeMore.value || showAbout.value ? '100%' : '0%' }}
       className='absolute w-screen bottom-0 left-0 grid grid-cols-8'
     >
       <div className='col-span-4' />

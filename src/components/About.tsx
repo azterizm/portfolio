@@ -1,7 +1,13 @@
+import { useHookstate } from '@hookstate/core'
+import * as classNames from 'classnames'
+import { motion } from 'framer-motion'
 import type { ReactElement } from 'react'
+import { canNavigateState, showAboutState } from '../state/project'
 import Button from './Button'
 
 export default function About(): ReactElement {
+  const showAbout = useHookstate(showAboutState)
+  const canNavigate = useHookstate(canNavigateState)
   return (
     <div className='w-screen h-screen p-5'>
       <div className='flex items-start flex-col text-7xl'>
@@ -14,10 +20,21 @@ export default function About(): ReactElement {
         mobile, desktop, and the web. I am contuinusly sharpening my skills and
         staying on top of the latest trends.{' '}
       </p>
-      <div className='absolute top-5 right-5'>
-        <Button>Close</Button>
+      <div
+        className={classNames(
+          'absolute top-5 right-5 transition-opacity',
+          !showAbout.value ? 'pointer-events-none opacity-0' : 'opacity-100',
+        )}
+      >
+        <Button onClick={() => (showAbout.set(false), canNavigate.set(true))}>
+          Close
+        </Button>
       </div>
-      <div className='absolute bottom-5 left-5 flex items-start flex-col gap-4'>
+      <motion.div
+        animate={{ opacity: showAbout.value ? 1 : 0 }}
+        transition={{ delay: !showAbout.value ? 0 : 0.7 }}
+        className='absolute bottom-5 left-5 flex items-start flex-col gap-4'
+      >
         <Button
           onClick={() => window.open(`mailto:abdielprime@gmail.com`, '_blank')}
         >
@@ -69,10 +86,14 @@ export default function About(): ReactElement {
         >
           Instagram
         </Button>
-      </div>
-      <span className='absolute left-[50%] -translate-x-[50%] bottom-5 text-neutral-400'>
+      </motion.div>
+      <motion.span
+        animate={{ opacity: showAbout.value ? 1 : 0 }}
+        transition={{ delay: !showAbout.value ? 0 : 0.7 }}
+        className='absolute left-[50%] -translate-x-[50%] bottom-5 text-neutral-400'
+      >
         abdielprime@gmail.com
-      </span>
+      </motion.span>
     </div>
   )
 }
