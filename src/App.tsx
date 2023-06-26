@@ -20,7 +20,7 @@ function App() {
       <ProjectSelector />
       <motion.h1
         animate={{ x: showAbout.value ? '150%' : '0%' }}
-        className='text-5xl absolute top-5 right-5'
+        className='text-5xl absolute top-5 right-5 hidden md:block'
       >
         my work
       </motion.h1>
@@ -28,12 +28,14 @@ function App() {
         animate={{ x: seeMore.value || showAbout.value ? '-100%' : '0' }}
         className='absolute bottom-0 left-0 text-2xl p-4 py-2 border-t-2 border-r-2 border-black'
         onClick={() => (showAbout.set(true), canNavigate.set(false))}
+        whileHover={{ scale: 1.1, x: 3, y: -3 }}
       >
         about
       </motion.h2>
       <motion.a
         href='mailto:abdielprime@gmail.com'
-        className='absolute bottom-0 right-0 uppercase text-2xl p-4 py-2 border-t-2 border-l-2 border-black'
+        className='absolute bottom-0 right-0 uppercase text-2xl p-4 py-2 border-t-2 border-l-2 border-black cursor-default'
+        whileHover={{ scale: 1.1, x: -3, y: -3 }}
       >
         contact
       </motion.a>

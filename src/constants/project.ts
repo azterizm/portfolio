@@ -9,6 +9,9 @@ export const projects = [
       '/test/096740b6-d2fa-4ea1-8f0e-e4c8f8a5aece.jpg',
       '/test/2a3088b8-7b13-4d43-bedf-bd0bba0244f4.jpg',
       '/test/a54571ea-5930-4e05-b18e-cf2ca1381a2c.jpg',
+      '/test/096740b6-d2fa-4ea1-8f0e-e4c8f8a5aece.jpg',
+      '/test/2a3088b8-7b13-4d43-bedf-bd0bba0244f4.jpg',
+      '/test/a54571ea-5930-4e05-b18e-cf2ca1381a2c.jpg',
     ],
     googlePlay:
       'https://play.google.com/store/apps/details?id=com.mondayoff.reloadrush',

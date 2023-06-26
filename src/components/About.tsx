@@ -10,7 +10,7 @@ export default function About(): ReactElement {
   const canNavigate = useHookstate(canNavigateState)
   return (
     <div className='w-screen h-screen p-5'>
-      <div className='flex items-start flex-col text-7xl'>
+      <div className='flex items-start flex-col text-7xl mt-12 sm:mt-0'>
         <h1>Abdullah</h1>
         <h1>Memon</h1>
       </div>
@@ -26,14 +26,20 @@ export default function About(): ReactElement {
           !showAbout.value ? 'pointer-events-none opacity-0' : 'opacity-100',
         )}
       >
-        <Button onClick={() => (showAbout.set(false), canNavigate.set(true))}>
+        <Button
+          className={classNames(
+            'delay-[1s]',
+            showAbout.value ? 'opacity-100' : 'opacity-0',
+          )}
+          onClick={() => (showAbout.set(false), canNavigate.set(true))}
+        >
           Close
         </Button>
       </div>
       <motion.div
         animate={{ opacity: showAbout.value ? 1 : 0 }}
         transition={{ delay: !showAbout.value ? 0 : 0.7 }}
-        className='absolute bottom-5 left-5 flex items-start flex-col gap-4'
+        className='absolute sm:bottom-5 bottom-20 left-5 flex items-start sm:flex-col gap-4 flex-wrap'
       >
         <Button
           onClick={() => window.open(`mailto:abdielprime@gmail.com`, '_blank')}
@@ -90,7 +96,7 @@ export default function About(): ReactElement {
       <motion.span
         animate={{ opacity: showAbout.value ? 1 : 0 }}
         transition={{ delay: !showAbout.value ? 0 : 0.7 }}
-        className='absolute left-[50%] -translate-x-[50%] bottom-5 text-neutral-400'
+        className='absolute left-5 sm:left-[50%] sm:-translate-x-[50%] bottom-5 text-neutral-400'
       >
         abdielprime@gmail.com
       </motion.span>

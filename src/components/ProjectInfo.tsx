@@ -2,6 +2,7 @@ import { useHookstate } from '@hookstate/core'
 import * as classNames from 'classnames'
 import { motion } from 'framer-motion'
 import { ReactElement, useEffect } from 'react'
+import { useWindowSize } from 'usehooks-ts'
 import { canNavigateState, seeMoreState } from '../state/project'
 
 export interface ProjectProps {
@@ -19,11 +20,10 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
     else canNavigate.set(true)
   }, [seeMore])
   return (
-    <div className='col-span-2 my-auto'>
+    <div className='col-span-2 mt-4 mb-16 mx-5 md:mx-0 md:my-auto'>
       <h2 className='text-2xl'>{props.title}</h2>
       <p className='text-sm'>{props.by}</p>
       <p className='mt-4'>{props.description}</p>
-
       <div className='flex items-center gap-4 overflow-hidden'>
         <motion.button
           initial={{ scale: 1 }}

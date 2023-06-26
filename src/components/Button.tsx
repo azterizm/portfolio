@@ -12,7 +12,7 @@ export default function Button(props: ButtonProps): ReactElement {
     <button
       {...buttonAttr}
       className={classNames(
-        'relative group duration-500 active:scale-90 scale-100 transition-transform',
+        'relative group duration-500 active:scale-90 scale-100 transition',
         buttonAttr.className,
       )}
     >

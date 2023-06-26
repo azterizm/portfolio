@@ -31,24 +31,22 @@ export default function Project(props: ProjectProps): ReactElement {
       className='w-screen h-screen overflow-hidden absolute top-0 left-0'
       initial={false}
     >
-      <div className={classNames('grid grid-cols-8 w-screen h-screen')}>
-        <div className={classNames('col-span-4 overflow-hidden')}>
+      <div
+        className={classNames(
+          'grid grid-cols-4 md:grid-cols-8 w-screen h-screen',
+        )}
+      >
+        <div className={classNames('col-span-4 overflow-hidden mt-5 md:mt-0')}>
           <motion.div
             animate={{ height: seeMore.value ? '0%' : '100%' }}
             className='w-full h-full overflow-hidden'
           >
             <img
               src={props.data.logo}
-              className='h-screen w-[70%] object-contain mx-auto'
+              className='h-full md:h-screen w-[70%] object-contain mx-auto'
             />
           </motion.div>
-          <motion.div
-            animate={{ height: seeMore.value ? '100%' : '0%' }}
-            transition={{ delay: 0.5 }}
-            className='w-full h-full overflow-hidden'
-          >
-            <Images sources={props.data.images} />
-          </motion.div>
+          <Images sources={props.data.images} />
         </div>
         <ProjectInfo
           title={props.data.title}
@@ -61,7 +59,11 @@ export default function Project(props: ProjectProps): ReactElement {
             <button
               onClick={() => window.open(props.data.googlePlay, '_blank')}
             >
-              <img className='-ml-2 w-40' src='/badges/google-play.png' />
+              <img
+                className='w-40'
+                id='google_play_button'
+                src='/badges/google-play.png'
+              />
             </button>
           )}
           {props.data.appStore && (
