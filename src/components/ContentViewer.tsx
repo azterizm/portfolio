@@ -32,6 +32,18 @@ export default function ContentViewer(props: ContentViewerProps): ReactElement {
       })
     }
   }, [seeMore])
+  useEffect(() => {
+    if (selected?.type === 'video') {
+      const video = document.querySelector<HTMLVideoElement>(
+        `video#full_screen[data-src="${selected.src}"]`,
+      )
+      if (video) {
+        video.src = video.getAttribute('data-src') || ''
+        video.load()
+        video.play()
+      }
+    }
+  }, [selected])
   return (
     <motion.div
       ref={containerRef}
@@ -91,6 +103,7 @@ export default function ContentViewer(props: ContentViewerProps): ReactElement {
                   autoPlay
                   data-src={selected.src}
                   poster={props.logoPath}
+                  id='full_screen'
                 />
               )
             ) : null}

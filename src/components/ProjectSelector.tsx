@@ -1,8 +1,8 @@
 import { useHookstate } from '@hookstate/core'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
-import { ReactElement } from 'react'
-import { useWindowSize } from 'usehooks-ts'
+import { ReactElement, useState } from 'react'
+import { useTimeout, useWindowSize } from 'usehooks-ts'
 import {
   seeMoreState,
   seeReviewsState,
@@ -22,6 +22,8 @@ export default function ProjectSelector(
   const seeReviews = useHookstate(seeReviewsState)
   const showAbout = useHookstate(showAboutState)
   const { width } = useWindowSize()
+  const [hideScrollIndicator, setHideScrollIndicator] = useState(false)
+  useTimeout(() => setHideScrollIndicator(true), 3000)
   return (
     <motion.div
       animate={{
@@ -33,7 +35,7 @@ export default function ProjectSelector(
       className='absolute w-screen md:bottom-0 left-0 grid grid-cols-8'
     >
       <div className='md:col-span-4' />
-      <div className='col-span-2 flex items-center gap-2'>
+      <div className='col-span-2 flex items-center gap-2 relative'>
         {props.projectLogos.map((image, i) => (
           <motion.img
             src={image}
@@ -49,6 +51,16 @@ export default function ProjectSelector(
             )}
           />
         ))}
+        <div
+          className={classNames(
+            'absolute top-0 left-0 pb-2 duration-[5000ms] translate-y-full md:-translate-y-full transition-opacity pointer-events-none w-full',
+            hideScrollIndicator ? 'opacity-0' : 'opacity-100',
+          )}
+        >
+          <p className='text-sm font-medium'>
+            Scroll or swipe the screen to navigate
+          </p>
+        </div>
       </div>
     </motion.div>
   )
