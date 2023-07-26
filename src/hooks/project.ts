@@ -5,6 +5,7 @@ import { canNavigateState, selectedProjectState } from '../state/project'
 
 export function handleNavigation() {
   const canNavigate = useHookstate(canNavigateState)
+  console.log('canNavigate', canNavigate.value)
   const selectedProject = useHookstate(selectedProjectState)
 
   useEffect(() => {

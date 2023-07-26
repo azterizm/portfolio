@@ -14,7 +14,8 @@ export default function About(): ReactElement {
         <h1>Abdullah</h1>
         <h1>Memon</h1>
       </div>
-      <p className='text-lg max-w-md'>
+      <p className='text-lg font-medium'>Freelance web and mobile developer</p>
+      <p className='text-lg max-w-md mt-2'>
         It all started from a line of code. Now I have grown into a full-stack
         developer who can also design. I can develop in all platforms like
         mobile, desktop, and the web. I am contuinusly sharpening my skills and
@@ -67,30 +68,6 @@ export default function About(): ReactElement {
           }
         >
           Freelancer
-        </Button>
-        <Button
-          onClick={() =>
-            window.open('https://www.behance.net/abdielprime', '_blank')
-          }
-        >
-          Behance
-        </Button>
-        <Button
-          onClick={() =>
-            window.open(
-              'https://www.linkedin.com/in/abdullah-memon-66a45419a/',
-              '_blank',
-            )
-          }
-        >
-          LinkedIn
-        </Button>
-        <Button
-          onClick={() =>
-            window.open('https://www.instagram.com/azterizm/', '_blank')
-          }
-        >
-          Instagram
         </Button>
       </motion.div>
       <motion.span

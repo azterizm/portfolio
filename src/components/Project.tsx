@@ -1,15 +1,16 @@
 import * as classNames from 'classnames'
 import { motion } from 'framer-motion'
-import Images from './Images'
 import ProjectInfo from './ProjectInfo'
 import type { ReactElement } from 'react'
 import { useHookstate } from '@hookstate/core'
 import {
   seeMoreState,
+  seeReviewsState,
   selectedProjectState,
   showAboutState,
 } from '../state/project'
 import { projects } from '../constants/project'
+import ContentViewer from './ContentViewer'
 
 export interface ProjectProps {
   data: (typeof projects)[number]
@@ -19,6 +20,7 @@ export interface ProjectProps {
 export default function Project(props: ProjectProps): ReactElement {
   const selectedProject = useHookstate(selectedProjectState)
   const seeMore = useHookstate(seeMoreState)
+  const seeReviews = useHookstate(seeReviewsState)
   const showAbout = useHookstate(showAboutState)
   return (
     <motion.div
@@ -38,7 +40,9 @@ export default function Project(props: ProjectProps): ReactElement {
       >
         <div className={classNames('col-span-4 overflow-hidden mt-5 md:mt-0')}>
           <motion.div
-            animate={{ height: seeMore.value ? '0%' : '100%' }}
+            animate={{
+              height: seeMore.value || seeReviews.value ? '0%' : '100%',
+            }}
             className='w-full h-full overflow-hidden'
           >
             <img
@@ -46,9 +50,29 @@ export default function Project(props: ProjectProps): ReactElement {
               className='h-full md:h-screen w-[70%] object-contain mx-auto'
             />
           </motion.div>
-          <Images sources={props.data.images} />
+          <ContentViewer
+            images={props.data.images || []}
+            videos={props.data.videos || []}
+          />
+          <motion.div
+            animate={{ height: !seeReviews.value ? '0%' : '100%' }}
+            className={classNames(
+              'w-full h-full flex flex-col space-y-4 p-4',
+              seeReviews.value
+                ? 'overflow-auto'
+                : 'pointer-events-none opacity-0 overflow-auto',
+            )}
+          >
+            {props.data.reviews?.map((review) => (
+              <div className='w-full p-4 rounded-lg bg-neutral-200 h-max'>
+                <p>{review.content}</p>
+                <h1 className='mt-2 text-lg font-bold'>{review.by}</h1>
+              </div>
+            ))}
+          </motion.div>
         </div>
         <ProjectInfo
+          reviews={props.data.reviews || []}
           title={props.data.title}
           by={props.data.by}
           href={props.data.site}

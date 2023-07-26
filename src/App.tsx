@@ -15,9 +15,9 @@ function App() {
   return (
     <MotionConfig transition={{ duration: 0.5 }}>
       {projects.map((project, i) => (
-        <Project data={project} index={i} />
+        <Project key={i} data={project} index={i} />
       ))}
-      <ProjectSelector />
+      <ProjectSelector projectLogos={projects.map((r) => r.logo)} />
       <motion.h1
         animate={{ x: showAbout.value ? '150%' : '0%' }}
         className='text-5xl absolute top-5 right-5 hidden md:block'
@@ -26,7 +26,7 @@ function App() {
       </motion.h1>
       <motion.h2
         animate={{ x: seeMore.value || showAbout.value ? '-100%' : '0' }}
-        className='absolute bottom-0 left-0 text-2xl p-4 py-2 border-t-2 border-r-2 border-black'
+        className='absolute bottom-0 left-0 text-2xl p-4 py-2 border-t-2 border-r-2 border-black cursor-pointer'
         onClick={() => (showAbout.set(true), canNavigate.set(false))}
         whileHover={{ scale: 1.1, x: 3, y: -3 }}
       >
@@ -34,7 +34,7 @@ function App() {
       </motion.h2>
       <motion.a
         href='mailto:abdielprime@gmail.com'
-        className='absolute bottom-0 right-0 uppercase text-2xl p-4 py-2 border-t-2 border-l-2 border-black cursor-default'
+        className='absolute bottom-0 right-0 uppercase text-2xl p-4 py-2 border-t-2 border-l-2 border-black'
         whileHover={{ scale: 1.1, x: -3, y: -3 }}
       >
         contact

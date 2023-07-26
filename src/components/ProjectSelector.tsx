@@ -5,24 +5,28 @@ import { ReactElement } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 import {
   seeMoreState,
+  seeReviewsState,
   selectedProjectState,
   showAboutState,
 } from '../state/project'
 
-export interface ProjectSelectorProps {}
+export interface ProjectSelectorProps {
+  projectLogos: string[]
+}
 
 export default function ProjectSelector(
   props: ProjectSelectorProps,
 ): ReactElement {
   const selected = useHookstate(selectedProjectState)
   const seeMore = useHookstate(seeMoreState)
+  const seeReviews = useHookstate(seeReviewsState)
   const showAbout = useHookstate(showAboutState)
   const { width } = useWindowSize()
   return (
     <motion.div
       animate={{
         y:
-          seeMore.value || showAbout.value
+          seeMore.value || showAbout.value || seeReviews.value
             ? `${width > 768 ? '' : '-'}100%`
             : '0%',
       }}
@@ -30,7 +34,7 @@ export default function ProjectSelector(
     >
       <div className='md:col-span-4' />
       <div className='col-span-2 flex items-center gap-2'>
-        {['/logos/minipoc.png', '/logos/ummit.png'].map((image, i) => (
+        {props.projectLogos.map((image, i) => (
           <motion.img
             src={image}
             alt={'project ' + (i + 1)}
