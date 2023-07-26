@@ -2,12 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>Abdullah Memon Portfolio</title>
     <link rel="stylesheet" href="/font/fonts.css" />
+    <link rel="stylesheet" href="/styles/loader.css" />
   </head>
   <body oncontextmenu="return false">
+    <div id="loader" style="height: 100%">
+      <div>
+        <h1>Abdullah Memon</h1>
+        <p>Portfolio website</p>
+        <p id="loading_text">Loading...</p>
+        <noscript
+          >It seems your browser does not support JavaScript. Please enable it
+          to continue.</noscript
+        >
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

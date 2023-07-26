@@ -63,8 +63,11 @@ export default function Project(props: ProjectProps): ReactElement {
                 : 'pointer-events-none opacity-0 overflow-auto',
             )}
           >
-            {props.data.reviews?.map((review) => (
-              <div className='w-full p-4 rounded-lg bg-neutral-200 h-max'>
+            {props.data.reviews?.map((review, i) => (
+              <div
+                key={i}
+                className='w-full p-4 rounded-lg bg-neutral-200 h-max'
+              >
                 <p>{review.content}</p>
                 <h1 className='mt-2 text-lg font-bold'>{review.by}</h1>
               </div>

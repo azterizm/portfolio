@@ -5,6 +5,7 @@ import Project from './components/Project'
 import ProjectSelector from './components/ProjectSelector'
 import { projects } from './constants/project'
 import { handleNavigation } from './hooks/project'
+import { removeLoader } from './hooks/ui'
 import { canNavigateState, seeMoreState, showAboutState } from './state/project'
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const showAbout = useHookstate(showAboutState)
   const canNavigate = useHookstate(canNavigateState)
   handleNavigation()
+  removeLoader()
   return (
     <MotionConfig transition={{ duration: 0.5 }}>
       {projects.map((project, i) => (
