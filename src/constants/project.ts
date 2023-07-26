@@ -3,7 +3,7 @@ export const projects = [
     title: 'minipoc',
     by: 'odesign',
     description:
-      'Bed time stories and sound. Now baby want to go to sleep, let them listen to some great adventurious stories or soft nature sound. Good sleep, better health',
+      'Bed time stories and sound. Now baby want to go to sleep, let them listen to some great adventurious stories or soft nature sound. Good sleep, better health.',
     logo: '/logos/minipoc.png.webp',
     images: [
       '/screenshots/minipoc/Screenshot from 2023-07-26 14-52-08.webp',

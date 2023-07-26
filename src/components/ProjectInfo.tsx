@@ -25,7 +25,10 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
     else canNavigate.set(true)
   }, [seeMore, seeReviews])
   return (
-    <div className='col-span-2 mt-4 mb-16 mx-5 md:mx-0 md:my-auto'>
+    <div
+      id='project_info'
+      className='col-span-2 mt-4 pb-32 mx-5 md:mx-0 md:my-auto overflow-auto'
+    >
       <h2 className='text-2xl'>{props.title}</h2>
       <p className='text-sm'>{props.by}</p>
       <p className='mt-4'>{props.description}</p>

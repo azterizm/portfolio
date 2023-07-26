@@ -10,7 +10,7 @@ export default function About(): ReactElement {
   const canNavigate = useHookstate(canNavigateState)
   return (
     <div className='w-screen h-screen p-5'>
-      <div className='flex items-start flex-col text-7xl mt-12 sm:mt-0'>
+      <div className='flex items-start flex-col mt-12 sm:mt-0 text-3xl sm:text-5xl md:text-7xl'>
         <h1>Abdullah</h1>
         <h1>Memon</h1>
       </div>
