@@ -1,5 +1,5 @@
-import * as classNames from 'classnames'
-import * as _ from 'lodash'
+import classNames from 'classnames'
+import _ from 'lodash'
 import type { HTMLAttributes, ReactElement, ReactNode } from 'react'
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {

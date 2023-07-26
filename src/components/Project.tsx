@@ -1,4 +1,4 @@
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 import { motion } from 'framer-motion'
 import ProjectInfo from './ProjectInfo'
 import type { ReactElement } from 'react'

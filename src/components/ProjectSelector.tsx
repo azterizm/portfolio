@@ -1,5 +1,5 @@
 import { useHookstate } from '@hookstate/core'
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 import { motion } from 'framer-motion'
 import { ReactElement } from 'react'
 import { useWindowSize } from 'usehooks-ts'
