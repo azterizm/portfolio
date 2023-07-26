@@ -4,7 +4,9 @@ export function removeLoader() {
   useEffect(() => {
     const loader = document.getElementById('loader')
     const root = document.getElementById('root')
-    window.addEventListener('load', () => {
+    let done = false
+    function handle() {
+      if (done) return
       if (loader) {
         loader.style.height = '0%'
       }
@@ -13,6 +15,13 @@ export function removeLoader() {
           root.style.opacity = '1'
         }, 400)
       }
+      done = true
+    }
+    window.addEventListener('load', () => {
+      handle()
     })
+    setTimeout(() => {
+      handle()
+    }, 4000)
   }, [])
 }

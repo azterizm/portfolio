@@ -32,6 +32,7 @@ export default function Project(props: ProjectProps): ReactElement {
       }}
       className='w-screen h-screen overflow-hidden absolute top-0 left-0'
       initial={false}
+      id={`project-${props.index}`}
     >
       <div
         className={classNames(
@@ -51,8 +52,10 @@ export default function Project(props: ProjectProps): ReactElement {
             />
           </motion.div>
           <ContentViewer
+            projectIndex={props.index}
             images={props.data.images || []}
             videos={props.data.videos || []}
+            logoPath={props.data.logo}
           />
           <motion.div
             animate={{ height: !seeReviews.value ? '0%' : '100%' }}
