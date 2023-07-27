@@ -39,7 +39,7 @@ export default function Project(props: ProjectProps): ReactElement {
         <div className={classNames('col-span-4 overflow-hidden mt-5 md:mt-0')}>
           <div
             className={classNames(
-              'h-full overflow-hidden transition-all duration-500',
+              'overflow-hidden transition-all duration-500',
               seeMore.value || seeReviews.value ? 'h-0' : 'h-full',
             )}
           >
