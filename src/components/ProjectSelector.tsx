@@ -23,7 +23,7 @@ export default function ProjectSelector(
   const showAbout = useHookstate(showAboutState)
   const { width } = useWindowSize()
   const [hideScrollIndicator, setHideScrollIndicator] = useState(false)
-  useTimeout(() => setHideScrollIndicator(true), 3000)
+  useTimeout(() => setHideScrollIndicator(true), 10000)
   return (
     <motion.div
       animate={{
@@ -53,7 +53,7 @@ export default function ProjectSelector(
         ))}
         <div
           className={classNames(
-            'absolute top-0 left-0 pb-2 duration-[5000ms] translate-y-full md:-translate-y-full transition-opacity pointer-events-none w-full',
+            'absolute w-[45vw] md:w-full top-4 md:-top-4 left-0 duration-[5000ms] translate-y-full md:-translate-y-full transition-opacity pointer-events-none p-3 rounded-lg bg-black text-white',
             hideScrollIndicator ? 'opacity-0' : 'opacity-100',
           )}
         >

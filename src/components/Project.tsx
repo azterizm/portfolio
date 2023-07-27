@@ -1,16 +1,15 @@
-import classNames from 'classnames'
-import { motion } from 'framer-motion'
-import ProjectInfo from './ProjectInfo'
-import type { ReactElement } from 'react'
 import { useHookstate } from '@hookstate/core'
+import classNames from 'classnames'
+import type { ReactElement } from 'react'
+import { projects } from '../constants/project'
 import {
   seeMoreState,
   seeReviewsState,
   selectedProjectState,
   showAboutState,
 } from '../state/project'
-import { projects } from '../constants/project'
 import ContentViewer from './ContentViewer'
+import ProjectInfo from './ProjectInfo'
 
 export interface ProjectProps {
   data: (typeof projects)[number]
@@ -23,15 +22,13 @@ export default function Project(props: ProjectProps): ReactElement {
   const seeReviews = useHookstate(seeReviewsState)
   const showAbout = useHookstate(showAboutState)
   return (
-    <motion.div
-      animate={{
-        width:
-          selectedProject.value === props.index && !showAbout.value
-            ? '100%'
-            : '0%',
-      }}
-      className='w-screen h-screen overflow-hidden absolute top-0 left-0'
-      initial={false}
+    <div
+      className={classNames(
+        'h-screen overflow-hidden absolute top-0 left-0 transition-all duration-500',
+        selectedProject.value === props.index && !showAbout.value
+          ? 'w-full'
+          : 'w-0',
+      )}
       id={`project-${props.index}`}
     >
       <div
@@ -40,30 +37,29 @@ export default function Project(props: ProjectProps): ReactElement {
         )}
       >
         <div className={classNames('col-span-4 overflow-hidden mt-5 md:mt-0')}>
-          <motion.div
-            animate={{
-              height: seeMore.value || seeReviews.value ? '0%' : '100%',
-            }}
-            className='w-full h-full overflow-hidden'
+          <div
+            className={classNames(
+              'h-full overflow-hidden transition-all duration-500',
+              seeMore.value || seeReviews.value ? 'h-0' : 'h-full',
+            )}
           >
             <img
               src={props.data.logo}
               className='h-full md:h-screen w-[70%] object-contain mx-auto'
             />
-          </motion.div>
+          </div>
           <ContentViewer
             projectIndex={props.index}
             images={props.data.images || []}
             videos={props.data.videos || []}
             logoPath={props.data.logo}
           />
-          <motion.div
-            animate={{ height: !seeReviews.value ? '0%' : '100%' }}
+          <div
             className={classNames(
-              'w-full h-full flex flex-col space-y-4 p-4',
+              'w-full h-full flex flex-col space-y-4 p-4 transition-all duration-500',
               seeReviews.value
-                ? 'overflow-auto'
-                : 'pointer-events-none opacity-0 overflow-auto',
+                ? 'overflow-auto h-full'
+                : 'pointer-events-none opacity-0 overflow-auto h-0',
             )}
           >
             {props.data.reviews?.map((review, i) => (
@@ -75,7 +71,7 @@ export default function Project(props: ProjectProps): ReactElement {
                 <h1 className='mt-2 text-lg font-bold'>{review.by}</h1>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
         <ProjectInfo
           reviews={props.data.reviews || []}
@@ -103,6 +99,6 @@ export default function Project(props: ProjectProps): ReactElement {
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
