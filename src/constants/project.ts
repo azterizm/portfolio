@@ -1,6 +1,7 @@
 export const projects = [
   {
     title: 'minipoc',
+    subtitle: 'Babies meditation app',
     by: 'odesign',
     description:
       'Bed time stories and sound. Now baby want to go to sleep, let them listen to some great adventurious stories or soft nature sound. Good sleep, better health.',
@@ -20,6 +21,7 @@ export const projects = [
   },
   {
     title: 'ummit',
+    subtitle: 'Eccomerce website',
     by: 'odesign',
     description:
       'Become true owner of your DvD. Be it in your hands or on our platform. You are the owner of it, forever. DRM free!',
@@ -42,6 +44,7 @@ export const projects = [
   },
   {
     title: 'Web Browser',
+    subtitle: 'Internal Desktop application',
     by: 'Best Shop Group, Georgia',
     description:
       'Special web browser created for the staff. Browse the web and be close to the all tools you need so you can focus more on your work than searching.',

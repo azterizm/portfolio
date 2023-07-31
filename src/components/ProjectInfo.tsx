@@ -1,15 +1,17 @@
 import { useHookstate } from '@hookstate/core'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
-import { ReactElement, useEffect } from 'react'
+import { ReactElement, useEffect, useRef } from 'react'
 import {
   canNavigateState,
   seeMoreState,
   seeReviewsState,
+  selectedProjectState,
 } from '../state/project'
 
 export interface ProjectProps {
   title: string
+  subtitle?: string
   by: string
   description: string
   href?: string
@@ -17,9 +19,19 @@ export interface ProjectProps {
 }
 
 export default function ProjectInfo(props: ProjectProps): ReactElement {
+  const selected = useHookstate(selectedProjectState)
   const seeMore = useHookstate(seeMoreState)
   const seeReviews = useHookstate(seeReviewsState)
   const canNavigate = useHookstate(canNavigateState)
+  const containerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTo({
+        top: 0,
+        left: 0,
+      })
+    }
+  }, [selected])
   useEffect(() => {
     if (seeMore.value || seeReviews.value) canNavigate.set(false)
     else canNavigate.set(true)
@@ -27,10 +39,16 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
   return (
     <div
       id='project_info'
-      className='col-span-2 mt-4 pb-32 mx-5 md:mx-0 md:my-auto overflow-auto'
+      className='col-span-2 mt-4 pb-32 mx-5 md:pb-0 md:mx-0 md:my-auto overflow-auto'
+      ref={containerRef}
     >
-      <h2 className='text-2xl'>{props.title}</h2>
+      <h2 className='leading-none whitespace-nowrap text-2xl'>{props.title}</h2>
       <p className='text-sm'>{props.by}</p>
+      {props.subtitle ? (
+        <h2 className='mt-4 text-lg leading-none whitespace-nowrap text-2xl'>
+          {props.subtitle}
+        </h2>
+      ) : null}
       <p className='mt-4'>{props.description}</p>
       <div className='flex items-center gap-4 overflow-hidden'>
         <motion.button
