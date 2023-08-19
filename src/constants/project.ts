@@ -1,6 +1,6 @@
 export const projects = [
   {
-    title: 'minipoc',
+    title: 'minipoc (in development)',
     subtitle: 'Babies meditation app',
     by: 'odesign',
     description:
@@ -44,7 +44,7 @@ export const projects = [
   },
   {
     title: 'Web Browser',
-    subtitle: 'Internal Desktop application',
+    subtitle: 'Organization Browser app',
     by: 'Best Shop Group, Georgia',
     description:
       'Special web browser created for the staff. Browse the web and be close to the all tools you need so you can focus more on your work than searching.',
@@ -62,8 +62,9 @@ export const projects = [
     ],
   },
   {
-    title: 'Lilimaid',
+    title: 'Lilimaid (in development)',
     by: 'odesign',
+    subtitle: 'Eccomerce website',
     description:
       'Hire maids whenever and wherever you like. No need to worry from now on to experience that dust on home back. All works is done with before and after comparisons, we know you will spot the difference.',
     logo: '/logos/lilimaid.png.webp',
