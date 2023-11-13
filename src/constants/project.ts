@@ -1,5 +1,20 @@
 export const projects = [
   {
+    title: 'Makier (in development)',
+    subtitle: 'Eccomerce website // customization tool',
+    by: 'odesign',
+    description:
+      'Makier is divided into 2 projects. Makier marketplace and Makier tool. Makier marketplace is a website where you can buy and sell your custom made products. Makier tool is a tool where you can customize your products and order them.',
+    logo: '/logos/makier.svg',
+    images: [
+      '/screenshots/makier/makier-tool1.png',
+      '/screenshots/makier/makier-tool2.png',
+      '/screenshots/makier/makier-tool3.png',
+      '/screenshots/makier/makier-tool4.png',
+      '/screenshots/makier/makier-tool5.png',
+    ],
+  },
+  {
     title: 'minipoc (in development)',
     subtitle: 'Babies meditation app',
     by: 'odesign',
@@ -24,7 +39,7 @@ export const projects = [
     subtitle: 'Eccomerce website',
     by: 'odesign',
     description:
-      'Become true owner of your DvD. Be it in your hands or on our platform. You are the owner of it, forever. DRM free!',
+      'Platform where you can buy and sell DvDs. Paired with high class dashboard.',
     logo: '/logos/ummit.png.webp',
     images: [
       '/screenshots/ummit/Screenshot from 2023-06-26 19-14-14.webp',
@@ -56,7 +71,8 @@ export const projects = [
     videos: ['/screenshots/best_shop/browser_showcase.mp4'],
     reviews: [
       {
-        content: `Finding someone who consistently complies with all your requirements is not easy... However, I was lucky having Abdullah working on my project, which he accomplished with dignity. I am happy he continues constant support of the application he developed for our company. The cooperation process was smooth while the budget was reasonable and met all of our expectations. Thank you for your fantastic work!`,
+        content:
+          `Finding someone who consistently complies with all your requirements is not easy... However, I was lucky having Abdullah working on my project, which he accomplished with dignity. I am happy he continues constant support of the application he developed for our company. The cooperation process was smooth while the budget was reasonable and met all of our expectations. Thank you for your fantastic work!`,
         by: `Giorgi Lekiashvili, CEO at Best Shop Group, Georgia`,
       },
     ],

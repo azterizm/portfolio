@@ -1,13 +1,14 @@
 import { useHookstate } from '@hookstate/core'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
-import { ReactElement, useState } from 'react'
+import { ReactElement } from 'react'
 import { useTimeout, useWindowSize } from 'usehooks-ts'
 import {
-  seeMoreState,
-  seeReviewsState,
-  selectedProjectState,
-  showAboutState,
+    hideScrollIndicatorState,
+    seeMoreState,
+    seeReviewsState,
+    selectedProjectState,
+    showAboutState,
 } from '../state/project'
 
 export interface ProjectSelectorProps {
@@ -22,15 +23,14 @@ export default function ProjectSelector(
   const seeReviews = useHookstate(seeReviewsState)
   const showAbout = useHookstate(showAboutState)
   const { width } = useWindowSize()
-  const [hideScrollIndicator, setHideScrollIndicator] = useState(false)
-  useTimeout(() => setHideScrollIndicator(true), 10000)
+  const hideScrollIndicator = useHookstate(hideScrollIndicatorState)
+  useTimeout(() => hideScrollIndicator.set(true), 10000)
   return (
     <motion.div
       animate={{
-        y:
-          seeMore.value || showAbout.value || seeReviews.value
-            ? `${width > 768 ? '' : '-'}100%`
-            : '0%',
+        y: seeMore.value || showAbout.value || seeReviews.value
+          ? `${width > 768 ? '' : '-'}100%`
+          : '0%',
       }}
       className='absolute w-screen md:bottom-0 left-0 grid grid-cols-8'
     >
@@ -54,7 +54,7 @@ export default function ProjectSelector(
         <div
           className={classNames(
             'absolute w-[45vw] md:w-full top-4 md:-top-4 left-0 duration-[5000ms] translate-y-full md:-translate-y-full transition-opacity pointer-events-none p-3 rounded-lg bg-black text-white',
-            hideScrollIndicator ? 'opacity-0' : 'opacity-100',
+            hideScrollIndicator.value ? 'opacity-0' : 'opacity-100',
           )}
         >
           <p className='text-sm font-medium'>

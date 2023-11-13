@@ -6,18 +6,28 @@ import ProjectSelector from './components/ProjectSelector'
 import { projects } from './constants/project'
 import { handleNavigation } from './hooks/project'
 import { removeLoader } from './hooks/ui'
-import { canNavigateState, seeMoreState, showAboutState } from './state/project'
+import {
+  canNavigateState,
+  hideScrollIndicatorState,
+  seeMoreState,
+  showAboutState,
+} from './state/project'
 
 function App() {
   const seeMore = useHookstate(seeMoreState)
   const showAbout = useHookstate(showAboutState)
   const canNavigate = useHookstate(canNavigateState)
+  const hideScrollIndicator = useHookstate(hideScrollIndicatorState)
   handleNavigation()
   removeLoader()
   return (
     <MotionConfig transition={{ duration: 0.5 }}>
       {projects.map((project, i) => (
-        <Project key={i} data={project} index={i} />
+        <Project
+          key={i}
+          data={project}
+          index={i}
+        />
       ))}
       <ProjectSelector projectLogos={projects.map((r) => r.logo)} />
       <motion.h1
@@ -29,7 +39,9 @@ function App() {
       <motion.h2
         animate={{ x: seeMore.value || showAbout.value ? '-100%' : '0' }}
         className='absolute bottom-0 left-0 text-2xl p-4 py-2 border-t-2 border-r-2 border-black cursor-pointer'
-        onClick={() => (showAbout.set(true), canNavigate.set(false))}
+        onClick={() => (showAbout.set(true),
+          canNavigate.set(false),
+          hideScrollIndicator.set(true))}
         whileHover={{ scale: 1.1, x: 3, y: -3 }}
       >
         about

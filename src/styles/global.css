@@ -28,7 +28,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: white;
+  background: hsl(0deg 0% 50.98%);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -76,7 +76,7 @@ button {
     transform: translate(-5px, 5px) scale(1.2);
   }
   #project_info {
-    width: unset;
+    width: 50vw
   }
 }
 

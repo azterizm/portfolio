@@ -1,11 +1,15 @@
 import { useHookstate } from '@hookstate/core'
 import { useEffect } from 'react'
 import { projects } from '../constants/project'
-import { canNavigateState, selectedProjectState } from '../state/project'
+import {
+  canNavigateState,
+  hideScrollIndicatorState,
+  selectedProjectState,
+} from '../state/project'
 
 export function handleNavigation() {
   const canNavigate = useHookstate(canNavigateState)
-  console.log('canNavigate', canNavigate.value)
+  const hideScrollIndicator = useHookstate(hideScrollIndicatorState)
   const selectedProject = useHookstate(selectedProjectState)
 
   useEffect(() => {
@@ -13,9 +17,11 @@ export function handleNavigation() {
     const max = projects.length - 1
     function goRight() {
       selectedProject.set((e) => (e >= max ? max : e + 1))
+      if (!hideScrollIndicator.value) hideScrollIndicator.set(true)
     }
     function goLeft() {
       selectedProject.set((e) => (e <= 0 ? 0 : e - 1))
+      if (!hideScrollIndicator.value) hideScrollIndicator.set(true)
     }
     function handleWheel(ev: WheelEvent) {
       if (!canNavigate.value) return

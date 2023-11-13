@@ -39,7 +39,7 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
   return (
     <div
       id='project_info'
-      className='col-span-2 mt-4 pb-32 mx-5 md:pb-0 md:mx-0 md:my-auto overflow-auto'
+      className='col-span-2 mt-4 mx-5 max-h-[30vh] md:max-h-[60vh] md:pb-0 md:mx-0 md:my-auto overflow-auto'
       ref={containerRef}
     >
       <h2 className='leading-none whitespace-nowrap text-2xl'>{props.title}</h2>
@@ -49,7 +49,7 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
           {props.subtitle}
         </h2>
       ) : null}
-      <p className='mt-4'>{props.description}</p>
+      <p className='max-w-sm mt-4'>{props.description}</p>
       <div className='flex items-center gap-4 overflow-hidden'>
         <motion.button
           initial={false}
