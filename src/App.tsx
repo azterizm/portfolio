@@ -47,7 +47,7 @@ function App() {
         about
       </motion.h2>
       <motion.a
-        href='mailto:abdielprime@gmail.com'
+        href='mailto:contact@obad.work'
         className='absolute bottom-0 right-0 uppercase text-2xl p-4 py-2 border-t-2 border-l-2 border-black'
         whileHover={{ scale: 1.1, x: -3, y: -3 }}
       >

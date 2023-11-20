@@ -43,7 +43,7 @@ export default function About(): ReactElement {
         className='absolute sm:bottom-5 bottom-20 left-5 flex items-start sm:flex-col gap-4 flex-wrap'
       >
         <Button
-          onClick={() => window.open(`mailto:abdielprime@gmail.com`, '_blank')}
+          onClick={() => window.open(`mailto:contact@obad.work`, '_blank')}
         >
           Email
         </Button>
@@ -57,15 +57,13 @@ export default function About(): ReactElement {
             window.open(
               'https://upwork.com/freelancers/abdullahmemon3',
               '_blank',
-            )
-          }
+            )}
         >
           Upwork
         </Button>
         <Button
           onClick={() =>
-            window.open('https://www.freelancer.com/u/abdielprime', '_blank')
-          }
+            window.open('https://www.freelancer.com/u/abdielprime', '_blank')}
         >
           Freelancer
         </Button>
@@ -75,7 +73,7 @@ export default function About(): ReactElement {
         transition={{ delay: !showAbout.value ? 0 : 0.7 }}
         className='absolute left-5 sm:left-[50%] sm:-translate-x-[50%] bottom-5 text-neutral-400'
       >
-        abdielprime@gmail.com
+        contact@obad.work
       </motion.span>
     </div>
   )
