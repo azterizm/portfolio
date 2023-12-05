@@ -39,7 +39,7 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
   return (
     <div
       id='project_info'
-      className='col-span-2 mt-4 mx-5 max-h-[30vh] md:max-h-[60vh] md:pb-0 md:mx-0 md:my-auto overflow-auto'
+      className='-translate-y-16 col-span-2 mt-4 mx-5 sm:max-h-[30vh] md:max-h-[60vh] md:pb-0 md:mx-0 md:my-auto overflow-auto'
       ref={containerRef}
     >
       <h2 className='leading-none whitespace-nowrap text-2xl'>{props.title}</h2>

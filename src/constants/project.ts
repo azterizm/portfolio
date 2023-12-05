@@ -40,7 +40,7 @@ export const projects = [
     by: 'odesign',
     description:
       'Platform where you can buy and sell DvDs. Paired with high class dashboard.',
-    logo: '/logos/ummit.png.webp',
+    logo: '/logos/ummit.png',
     images: [
       '/screenshots/ummit/Screenshot from 2023-06-26 19-14-14.webp',
       '/screenshots/ummit/Screenshot from 2023-06-26 19-13-16.webp',

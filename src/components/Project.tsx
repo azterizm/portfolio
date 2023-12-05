@@ -45,7 +45,7 @@ export default function Project(props: ProjectProps): ReactElement {
           >
             <img
               src={props.data.logo}
-              className='h-full md:h-screen w-[70%] object-contain mx-auto'
+              className='h-1/2 scale-75 translate-y-8 sm:scale-100 sm:translate-y-0 sm:h-full md:h-screen w-[70%] object-contain mx-auto'
             />
           </div>
           <ContentViewer

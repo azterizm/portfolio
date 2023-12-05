@@ -30,6 +30,7 @@ export function handleNavigation() {
     }
 
     let xDown: null | number = null
+    let yDown: null | number = null
 
     function getTouches(evt: any) {
       return evt.touches || evt.originalEvent.touches
@@ -39,15 +40,19 @@ export function handleNavigation() {
       if (!canNavigate.value) return
       const firstTouch = getTouches(evt)[0]
       xDown = firstTouch.clientX
+      yDown = firstTouch.clientY
     }
 
-    function handleTouchMove(evt: any) {
+    function handleTouchEnd(evt: any) {
       if (!canNavigate.value) return
-      if (!xDown) {
+      if (!xDown || !yDown) {
         return
       }
-      const xUp = evt.touches[0].clientX
+      const xUp = evt.changedTouches[0].clientX
+      const yUp = evt.changedTouches[0].clientY
       const xDiff = xDown - xUp
+      const yDiff = yDown - yUp
+      if (Math.abs(yDiff) > Math.abs(xDiff)) return
       if (xDiff > 0) {
         goRight()
       } else {
@@ -58,11 +63,11 @@ export function handleNavigation() {
 
     document.addEventListener('wheel', handleWheel, false)
     document.addEventListener('touchstart', handleTouchStart, false)
-    document.addEventListener('touchmove', handleTouchMove, false)
+    document.addEventListener('touchend', handleTouchEnd, false)
     return () => {
       document.removeEventListener('wheel', handleWheel)
       document.removeEventListener('touchstart', handleTouchStart)
-      document.removeEventListener('touchmove', handleTouchMove)
+      document.removeEventListener('touchend', handleTouchEnd)
     }
   }, [canNavigate])
 }
