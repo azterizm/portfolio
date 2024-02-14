@@ -16,6 +16,7 @@ export interface ProjectProps {
   description: string
   href?: string
   reviews: { content: string; by: string }[]
+  underDevelopment?: boolean
 }
 
 export default function ProjectInfo(props: ProjectProps): ReactElement {
@@ -39,17 +40,26 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
   return (
     <div
       id='project_info'
-      className='-translate-y-16 col-span-2 mt-4 mx-5 sm:max-h-[30vh] md:max-h-[60vh] md:pb-0 md:mx-0 md:my-auto overflow-auto'
+      className='-translate-y-4 col-span-2 mt-4 mx-5 pb-8 sm:max-h-[30vh] md:max-h-[60vh] md:pb-0 md:mx-0 md:my-auto overflow-clip'
       ref={containerRef}
     >
       <h2 className='leading-none whitespace-nowrap text-2xl'>{props.title}</h2>
       <p className='text-sm'>{props.by}</p>
-      {props.subtitle ? (
-        <h2 className='mt-4 text-lg leading-none whitespace-nowrap text-2xl'>
-          {props.subtitle}
-        </h2>
-      ) : null}
-      <p className='max-w-sm mt-4'>{props.description}</p>
+      {props.subtitle
+        ? (
+          <h2 className='mt-4 text-lg leading-none whitespace-nowrap text-2xl'>
+            {props.subtitle}
+          </h2>
+        )
+        : null}
+      {props.underDevelopment
+        ? <h4 className='text-xs'>Under development</h4>
+        : null}
+      <p
+        onMouseOver={() => canNavigate.set(false)}
+        onMouseOut={() => canNavigate.set(true)}
+        onMouseLeave={() => canNavigate.set(true)}
+        className='max-w-sm mt-4'>{props.description}</p>
       <div className='flex items-center gap-4 overflow-hidden'>
         <motion.button
           initial={false}
@@ -63,34 +73,38 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
           {seeMore.value ? 'Go back' : 'See more'}
           <div className='absolute -bottom-1 left-0 w-full h-1 bg-black scale-x-100 group-hover:scale-x-0 origin-left transition-transform duration-500' />
         </motion.button>
-        {props.reviews.length ? (
-          <motion.button
-            initial={false}
-            animate={{ y: seeMore.value ? 50 : 0 }}
-            className={classNames(
-              'relative group active:scale-90 scale-100 transition-transform duration-500',
-              'block my-4',
-            )}
-            onClick={() => (seeReviews.set((e) => !e), seeMore.set(false))}
-          >
-            {seeReviews.value ? 'Hide' : 'See'} reviews
-            <div className='absolute -bottom-1 left-0 w-full h-1 bg-black scale-x-100 group-hover:scale-x-0 origin-left transition-transform duration-500' />
-          </motion.button>
-        ) : null}
-        {props.href ? (
-          <motion.button
-            initial={false}
-            animate={{ y: seeMore.value ? 50 : 0 }}
-            className={classNames(
-              'relative group active:scale-90 scale-100 transition-transform duration-500',
-              'block my-4',
-            )}
-            onClick={() => window.open(props.href, '_blank')}
-          >
-            Visit site
-            <div className='absolute -bottom-1 left-0 w-full h-1 bg-black scale-x-100 group-hover:scale-x-0 origin-left transition-transform duration-500' />
-          </motion.button>
-        ) : null}
+        {props.reviews.length
+          ? (
+            <motion.button
+              initial={false}
+              animate={{ y: seeMore.value ? 50 : 0 }}
+              className={classNames(
+                'relative group active:scale-90 scale-100 transition-transform duration-500',
+                'block my-4',
+              )}
+              onClick={() => (seeReviews.set((e) => !e), seeMore.set(false))}
+            >
+              {seeReviews.value ? 'Hide' : 'See'} reviews
+              <div className='absolute -bottom-1 left-0 w-full h-1 bg-black scale-x-100 group-hover:scale-x-0 origin-left transition-transform duration-500' />
+            </motion.button>
+          )
+          : null}
+        {props.href
+          ? (
+            <motion.button
+              initial={false}
+              animate={{ y: seeMore.value ? 50 : 0 }}
+              className={classNames(
+                'relative group active:scale-90 scale-100 transition-transform duration-500',
+                'block my-4',
+              )}
+              onClick={() => window.open(props.href, '_blank')}
+            >
+              Visit site
+              <div className='absolute -bottom-1 left-0 w-full h-1 bg-black scale-x-100 group-hover:scale-x-0 origin-left transition-transform duration-500' />
+            </motion.button>
+          )
+          : null}
       </div>
     </div>
   )

@@ -1,10 +1,32 @@
 export const projects = [
   {
-    title: 'Makier (in development)',
-    subtitle: 'Eccomerce website // customization tool',
+    title: 'Cricutny',
+    subtitle: 'Eccomerce website',
+    underDevelopment: false,
     by: 'odesign',
     description:
-      'Makier is divided into 2 projects. Makier marketplace and Makier tool. Makier marketplace is a website where you can buy and sell your custom made products. Makier tool is a tool where you can customize your products and order them.',
+      'Cricutny is a website where you can buy hand made products. Fonts, designs, patterns, and more.',
+    logo: '/logos/cricutny.svg',
+    images: [
+      '/screenshots/cricutny/cricutny1.png',
+      '/screenshots/cricutny/cricutny2.png',
+      '/screenshots/cricutny/cricutny3.png',
+      '/screenshots/cricutny/cricutny4.png',
+      '/screenshots/cricutny/cricutny5.png',
+    ],
+    videos: [
+      '/screenshots/cricutny/cricutny6.mp4',
+      '/screenshots/cricutny/cricutny7.webm',
+    ],
+    site: 'https://www.cricutny.com/',
+  },
+  {
+    title: 'Makier',
+    subtitle: 'Eccomerce website // customization tool',
+    by: 'odesign',
+    underDevelopment: true,
+    description:
+      'Makier is divided into 2 projects. Makier marketplace and Makier tool. Makier marketplace is a website where you can buy and sell your custom made products. Makier tool is a tool where you can customize your products and order them. Everyone can join and sell their products. All is managed in the dashboard with complete control over the products and orders. Also get paid from donations.',
     logo: '/logos/makier.svg',
     images: [
       '/screenshots/makier/makier-tool1.png',
@@ -15,11 +37,12 @@ export const projects = [
     ],
   },
   {
-    title: 'minipoc (in development)',
+    title: 'minipoc',
     subtitle: 'Babies meditation app',
+    underDevelopment: true,
     by: 'odesign',
     description:
-      'Bed time stories and sound. Now baby want to go to sleep, let them listen to some great adventurious stories or soft nature sound. Good sleep, better health.',
+      'Bed time stories and sound. Now baby want to go to sleep, let them listen to some great adventurious stories or soft nature sound. Good sleep, better health. Everyone can join and be part of the community. Share your stories and sounds. Also get paid from donations.',
     logo: '/logos/minipoc.png.webp',
     images: [
       '/screenshots/minipoc/Screenshot from 2023-07-26 14-52-08.webp',
@@ -39,7 +62,7 @@ export const projects = [
     subtitle: 'Eccomerce website',
     by: 'odesign',
     description:
-      'Platform where you can buy and sell DvDs. Paired with high class dashboard.',
+      'Platform where you can buy and sell DvDs. Paired with high class dashboard. Everyone can join and sell their DvDs then get paid.',
     logo: '/logos/ummit.png',
     images: [
       '/screenshots/ummit/Screenshot from 2023-06-26 19-14-14.webp',
@@ -78,8 +101,9 @@ export const projects = [
     ],
   },
   {
-    title: 'Lilimaid (in development)',
+    title: 'Lilimaid',
     by: 'odesign',
+    underDevelopment: true,
     subtitle: 'Eccomerce website',
     description:
       'Hire maids whenever and wherever you like. No need to worry from now on to experience that dust on home back. All works is done with before and after comparisons, we know you will spot the difference.',

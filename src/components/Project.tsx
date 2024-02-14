@@ -75,6 +75,7 @@ export default function Project(props: ProjectProps): ReactElement {
         </div>
         <ProjectInfo
           reviews={props.data.reviews || []}
+          underDevelopment={props.data.underDevelopment}
           title={props.data.title}
           subtitle={props.data.subtitle}
           by={props.data.by}
