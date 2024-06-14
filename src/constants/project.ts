@@ -62,45 +62,6 @@ export const projects = [
     site: 'https://sopawlicious.com/',
   },
   {
-    title: 'Makier',
-    subtitle: 'Eccomerce website // customization tool',
-    by: 'odesign',
-    underDevelopment: true,
-    description:
-      'The Marketplace lets you buy and sell custom products, while the Tool helps you customize and order. Anyone keen on selling can use these projects. Users can manage their listings and orders easily through the dashboard. You can also choose to receive donations as payments.',
-    logo: '/logos/makier.svg',
-    images: [
-      '/screenshots/makier/makier-tool1.png',
-      '/screenshots/makier/makier-tool2.png',
-      '/screenshots/makier/makier-tool3.png',
-      '/screenshots/makier/makier-tool4.png',
-      '/screenshots/makier/makier-tool5.png',
-    ],
-    projectInfoClassName: '!-translate-y-1/4 sm:!translate-y-0 pb-12 max-h-[50vh]'
-  },
-  {
-    title: 'minipoc',
-    subtitle: 'Babies meditation app // Creator dashboard',
-    underDevelopment: true,
-    by: 'odesign',
-    description:
-      'Bed time stories and sound. Now baby want to go to sleep, let them listen to some great adventurious stories or soft nature sound. Good sleep, better health. Everyone can join and be part of the community. Share your stories and sounds. Also get paid from donations.',
-    logo: '/logos/minipoc.png.webp',
-    images: [
-      '/screenshots/minipoc/Screenshot from 2023-07-26 14-52-08.webp',
-      '/screenshots/minipoc/Screenshot from 2023-07-26 14-54-37.webp',
-      '/screenshots/minipoc/Screenshot from 2023-07-26 14-55-06.webp',
-    ],
-    videos: [
-      '/screenshots/minipoc/Screencast from 2023-07-26 14-52-43.webm',
-      '/screenshots/minipoc/Screencast from 2023-07-26 14-54-10.webm',
-    ],
-    site: '',
-    googlePlay: '',
-    appStore: '',
-    projectInfoClassName: '!-translate-y-1/4 sm:!translate-y-0 pb-12 max-h-[50vh]'
-  },
-  {
     title: 'ummit',
     subtitle: 'Eccomerce website // Creator dashboard // Admin dashboard',
     by: 'odesign',
@@ -142,6 +103,45 @@ export const projects = [
         by: `Giorgi Lekiashvili, CEO at Best Shop Group, Georgia`,
       },
     ],
+  },
+  {
+    title: 'Makier',
+    subtitle: 'Eccomerce website // customization tool',
+    by: 'odesign',
+    underDevelopment: true,
+    description:
+      'The Marketplace lets you buy and sell custom products, while the Tool helps you customize and order. Anyone keen on selling can use these projects. Users can manage their listings and orders easily through the dashboard. You can also choose to receive donations as payments.',
+    logo: '/logos/makier.svg',
+    images: [
+      '/screenshots/makier/makier-tool1.png',
+      '/screenshots/makier/makier-tool2.png',
+      '/screenshots/makier/makier-tool3.png',
+      '/screenshots/makier/makier-tool4.png',
+      '/screenshots/makier/makier-tool5.png',
+    ],
+    projectInfoClassName: '!-translate-y-1/4 sm:!translate-y-0 pb-12 max-h-[50vh]'
+  },
+  {
+    title: 'minipoc',
+    subtitle: 'Babies meditation app // Creator dashboard',
+    underDevelopment: true,
+    by: 'odesign',
+    description:
+      'Bed time stories and sound. Now baby want to go to sleep, let them listen to some great adventurious stories or soft nature sound. Good sleep, better health. Everyone can join and be part of the community. Share your stories and sounds. Also get paid from donations.',
+    logo: '/logos/minipoc.png.webp',
+    images: [
+      '/screenshots/minipoc/Screenshot from 2023-07-26 14-52-08.webp',
+      '/screenshots/minipoc/Screenshot from 2023-07-26 14-54-37.webp',
+      '/screenshots/minipoc/Screenshot from 2023-07-26 14-55-06.webp',
+    ],
+    videos: [
+      '/screenshots/minipoc/Screencast from 2023-07-26 14-52-43.webm',
+      '/screenshots/minipoc/Screencast from 2023-07-26 14-54-10.webm',
+    ],
+    site: '',
+    googlePlay: '',
+    appStore: '',
+    projectInfoClassName: '!-translate-y-1/4 sm:!translate-y-0 pb-12 max-h-[50vh]'
   },
   {
     title: 'Lilimaid',

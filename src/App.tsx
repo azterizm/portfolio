@@ -24,7 +24,7 @@ function App() {
   removeLoader()
   return (
     <MotionConfig transition={{ duration: 0.5 }}>
-      {projects.sort(r => r.underDevelopment ? 1 : -1).map((project, i) => (
+      {projects.map((project, i) => (
         <Project
           key={i}
           data={project}
