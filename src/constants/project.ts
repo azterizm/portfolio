@@ -1,7 +1,27 @@
 export const projects = [
   {
+    title: 'Preebee',
+    subtitle: 'selling platform',
+    underDevelopment: false,
+    by: 'azterizm',
+    description:
+      'Make your life easier by opening your own shop and selling with full management.',
+    logo: 'https://www.preebee.com/logo.svg',
+    images: [
+      '/screenshots/preebee/preebee1.png',
+      '/screenshots/preebee/preebee2.png',
+      '/screenshots/preebee/preebee3.png',
+      '/screenshots/preebee/preebee4.png',
+      '/screenshots/preebee/preebee5.png',
+      '/screenshots/preebee/preebee6.png',
+      '/screenshots/preebee/preebee7.png',
+      '/screenshots/preebee/preebee8.png',
+    ],
+    site: 'https://www.preebee.com/',
+  },
+  {
     title: 'Cricutny',
-    subtitle: 'Eccomerce website',
+    subtitle: 'Eccomerce website // Admin dashboard // Staff dashboard',
     underDevelopment: false,
     by: 'odesign',
     description:
@@ -21,12 +41,33 @@ export const projects = [
     site: 'https://www.cricutny.com/',
   },
   {
+    title: 'So Pawlicious',
+    subtitle: 'Eccomerce website // Admin dashboard // Staff dashboard',
+    underDevelopment: false,
+    by: 'odesign',
+    description:
+      'Discover premium recipes tailored for your cherished canine companion. Prepare their meals at your convenience using commonly available home ingredients. Follow esteemed culinary experts, hone your culinary skills, and gain recognition in the pet food community.',
+    logo: '/logos/so_pawlicious.svg',
+    images: [
+      '/screenshots/so_pawlicious/so_pawlicious1.png',
+      '/screenshots/so_pawlicious/so_pawlicious2.png',
+      '/screenshots/so_pawlicious/so_pawlicious3.png',
+      '/screenshots/so_pawlicious/so_pawlicious4.png',
+      '/screenshots/so_pawlicious/so_pawlicious5.png',
+      '/screenshots/so_pawlicious/so_pawlicious6.png',
+    ],
+    videos: [
+      '/screenshots/so_pawlicious/recording.mp4',
+    ],
+    site: 'https://sopawlicious.com/',
+  },
+  {
     title: 'Makier',
     subtitle: 'Eccomerce website // customization tool',
     by: 'odesign',
     underDevelopment: true,
     description:
-      'Makier is divided into 2 projects. Makier marketplace and Makier tool. Makier marketplace is a website where you can buy and sell your custom made products. Makier tool is a tool where you can customize your products and order them. Everyone can join and sell their products. All is managed in the dashboard with complete control over the products and orders. Also get paid from donations.',
+      'The Marketplace lets you buy and sell custom products, while the Tool helps you customize and order. Anyone keen on selling can use these projects. Users can manage their listings and orders easily through the dashboard. You can also choose to receive donations as payments.',
     logo: '/logos/makier.svg',
     images: [
       '/screenshots/makier/makier-tool1.png',
@@ -35,10 +76,11 @@ export const projects = [
       '/screenshots/makier/makier-tool4.png',
       '/screenshots/makier/makier-tool5.png',
     ],
+    projectInfoClassName: '!-translate-y-1/4 sm:!translate-y-0 pb-12 max-h-[50vh]'
   },
   {
     title: 'minipoc',
-    subtitle: 'Babies meditation app',
+    subtitle: 'Babies meditation app // Creator dashboard',
     underDevelopment: true,
     by: 'odesign',
     description:
@@ -56,10 +98,11 @@ export const projects = [
     site: '',
     googlePlay: '',
     appStore: '',
+    projectInfoClassName: '!-translate-y-1/4 sm:!translate-y-0 pb-12 max-h-[50vh]'
   },
   {
     title: 'ummit',
-    subtitle: 'Eccomerce website',
+    subtitle: 'Eccomerce website // Creator dashboard // Admin dashboard',
     by: 'odesign',
     description:
       'Platform where you can buy and sell DvDs. Paired with high class dashboard. Everyone can join and sell their DvDs then get paid.',

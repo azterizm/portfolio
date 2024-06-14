@@ -11,6 +11,7 @@ import {
   hideScrollIndicatorState,
   seeMoreState,
   showAboutState,
+  testValueState,
 } from './state/project'
 
 function App() {
@@ -18,11 +19,12 @@ function App() {
   const showAbout = useHookstate(showAboutState)
   const canNavigate = useHookstate(canNavigateState)
   const hideScrollIndicator = useHookstate(hideScrollIndicatorState)
+  const testValue = useHookstate(testValueState)
   handleNavigation()
   removeLoader()
   return (
     <MotionConfig transition={{ duration: 0.5 }}>
-      {projects.map((project, i) => (
+      {projects.sort(r => r.underDevelopment ? 1 : -1).map((project, i) => (
         <Project
           key={i}
           data={project}
@@ -38,7 +40,7 @@ function App() {
       </motion.h1>
       <motion.h2
         animate={{ x: seeMore.value || showAbout.value ? '-100%' : '0' }}
-        className='absolute bottom-0 left-0 text-2xl p-4 py-2 border-t-2 border-r-2 border-black cursor-pointer'
+        className='absolute bottom-0 left-0 text-2xl p-4 py-2 border-t-2 border-r-2 border-black cursor-pointer bg-main-bg'
         onClick={() => (showAbout.set(true),
           canNavigate.set(false),
           hideScrollIndicator.set(true))}
@@ -48,7 +50,7 @@ function App() {
       </motion.h2>
       <motion.a
         href='mailto:contact@obad.work'
-        className='absolute bottom-0 right-0 uppercase text-2xl p-4 py-2 border-t-2 border-l-2 border-black'
+        className='absolute bottom-0 right-0 uppercase text-2xl p-4 py-2 border-t-2 border-l-2 border-black bg-main-bg'
         whileHover={{ scale: 1.1, x: -3, y: -3 }}
       >
         contact
@@ -60,6 +62,11 @@ function App() {
       >
         <About />
       </motion.div>
+      {import.meta.env.DEV ? (
+        <div className="fixed top-0 right-4">
+          {testValue.get()}
+        </div>
+      ) : null}
     </MotionConfig>
   )
 }

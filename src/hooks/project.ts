@@ -4,7 +4,7 @@ import { projects } from '../constants/project'
 import {
   canNavigateState,
   hideScrollIndicatorState,
-  selectedProjectState,
+  selectedProjectState
 } from '../state/project'
 
 export function handleNavigation() {
@@ -53,9 +53,9 @@ export function handleNavigation() {
       const xDiff = xDown - xUp
       const yDiff = yDown - yUp
       if (Math.abs(yDiff) > Math.abs(xDiff)) return
-      if (xDiff > 0) {
+      if (xDiff > 60) {
         goRight()
-      } else {
+      } else if (xDiff < -60) {
         goLeft()
       }
       xDown = null

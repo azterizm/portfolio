@@ -39,13 +39,13 @@ export default function Project(props: ProjectProps): ReactElement {
         <div className={classNames('col-span-4 overflow-hidden mt-5 md:mt-0')}>
           <div
             className={classNames(
-              'overflow-hidden transition-all duration-500',
-              seeMore.value || seeReviews.value ? 'h-0' : 'h-full',
+              'overflow-hidden transition-all duration-500 flex items-center justify-center',
+              seeMore.value || seeReviews.value ? 'h-0' : 'h-1/2 sm:h-full',
             )}
           >
             <img
               src={props.data.logo}
-              className='h-1/2 scale-75 translate-y-8 sm:scale-100 sm:translate-y-0 sm:h-full md:h-screen w-[70%] object-contain mx-auto'
+              className='h-[25vh] scale-75 translate-y-8 sm:scale-100 sm:translate-y-0 sm:h-full md:h-[50vh] w-[70%] object-contain'
             />
           </div>
           <ContentViewer
@@ -74,6 +74,7 @@ export default function Project(props: ProjectProps): ReactElement {
           </div>
         </div>
         <ProjectInfo
+          projectInfoClassName={props.data.projectInfoClassName}
           reviews={props.data.reviews || []}
           underDevelopment={props.data.underDevelopment}
           title={props.data.title}
