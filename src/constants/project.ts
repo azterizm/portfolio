@@ -18,6 +18,9 @@ export const projects = [
       '/screenshots/preebee/preebee8.png',
     ],
     site: 'https://www.preebee.com/',
+    appStore: undefined,
+    googlePlay: undefined,
+    projectInfoClassName: ''
   },
   {
     title: 'Cricutny',
