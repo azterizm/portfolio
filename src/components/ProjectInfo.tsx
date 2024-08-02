@@ -13,12 +13,14 @@ import _ from 'lodash'
 export interface ProjectProps {
   title: string
   subtitle?: string
+  date?: string
   by: string
   description: string
   href?: string
   reviews: { content: string; by: string }[]
   underDevelopment?: boolean
   projectInfoClassName?: string
+  technologies?: string[]
 }
 
 export default function ProjectInfo(props: ProjectProps): ReactElement {
@@ -53,14 +55,16 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
       className={classNames('duration-300 overflow-y-auto col-span-2 mt-4 mx-5 sm:pb-[50%] sm:max-h-[30vh] md:max-h-[60vh] md:pb-0 md:mx-0 md:my-auto -translate-y-2/3 sm:translate-y-0', props.projectInfoClassName)}
       ref={containerRef}
     >
-      <h2 className={classNames('leading-none whitespace-nowrap text-2xl', { 'absolute bottom-16': seeMore.value })}>
+      <h2 className={classNames('font-semibold leading-none whitespace-nowrap text-2xl', { 'absolute bottom-16': seeMore.value })}>
         {props.title}
       </h2>
-      <p className={classNames('text-sm', { 'absolute bottom-12': seeMore.value })}>{props.by}</p>
+      {props.date ? (
+        <p className={classNames('text-neutral-500 text-sm', { 'absolute bottom-12': seeMore.value })}>{props.date}</p>
+      ) : null}
       {props.subtitle
         ? (
-          <motion.h2 animate={{ opacity: seeMore.value ? 0 : 1 }} className='mt-4 text-lg leading-none sm:whitespace-nowrap text-2xl'>
-            {props.subtitle}
+          <motion.h2 animate={{ opacity: seeMore.value ? 0 : 1 }} className='normal-case text-neutral-800 mt-4 text-lg leading-none sm:whitespace-nowrap text-2xl'>
+            {props.subtitle[0].toUpperCase() + props.subtitle.slice(1)}
           </motion.h2>
         )
         : null}
@@ -72,7 +76,17 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
         onMouseOut={() => canNavigate.set(true)}
         onMouseLeave={() => canNavigate.set(true)}
         animate={{ opacity: seeMore.value ? 0 : 1 }}
-        className='max-w-sm mt-4'>{props.description}</motion.p>
+        className='text-neutral-800 max-w-sm mt-2'>{props.description}</motion.p>
+      {props.technologies?.length ? (
+        <motion.div animate={{ opacity: seeMore.value ? 0 : 1 }} className="mt-4">
+          <h3 className='text-md'>Technologies</h3>
+          <div className="flex text-sm items-center gap-y-0 gap-x-2 flex-wrap max-w-[30rem]">
+            {props.technologies.map((r, i) => (
+              <p key={i}>{r}</p>
+            ))}
+          </div>
+        </motion.div>
+      ) : null}
       <div className='flex items-center gap-4 overflow-hidden'>
         <motion.button
           initial={false}

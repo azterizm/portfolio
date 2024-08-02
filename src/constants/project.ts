@@ -1,8 +1,36 @@
 export const projects = [
   {
+    title: 'Zed Clothing',
+    subtitle: 'clothing brand',
+    underDevelopment: false,
+    date: 'July 2024 - August 2024',
+    by: 'azterizm',
+    description:
+      'Business grade elegance for the modern, handsome professionals.',
+    logo: '/logos/zed_clothing.svg',
+    images: [
+      '/screenshots/zed_clothing/1722614753.png',
+      '/screenshots/zed_clothing/1722614764.png',
+      '/screenshots/zed_clothing/1722614792.png',
+      '/screenshots/zed_clothing/1722614840.png',
+      '/screenshots/zed_clothing/1722614852.png'
+    ],
+    videos: [
+      '/screenshots/zed_clothing/test1.mp4',
+      '/screenshots/zed_clothing/test2.mp4',
+      '/screenshots/zed_clothing/test3.mp4'
+    ],
+    technologies: ['RemixJS', 'PrismaJS (MySQL)', 'Framer Motion', 'TailwindCSS', 'Zod', 'Redis', 'Playwright'],
+    site: 'https://zed.obad.work/',
+    appStore: undefined,
+    googlePlay: undefined,
+    projectInfoClassName: ''
+  },
+  {
     title: 'Preebee',
     subtitle: 'selling platform',
     underDevelopment: false,
+    date: 'March 2024 - June 2024',
     by: 'azterizm',
     description:
       'Make your life easier by opening your own shop and selling with full management.',
@@ -17,6 +45,11 @@ export const projects = [
       '/screenshots/preebee/preebee7.png',
       '/screenshots/preebee/preebee8.png',
     ],
+    videos: [
+      '/screenshots/cricutny/cricutny6.mp4',
+      '/screenshots/cricutny/cricutny7.webm',
+    ],
+    technologies: ['RemixJS', 'PrismaJS (MySQL)', 'GSAP', 'DaisyUI (TailwindCSS)', 'Typescript React (Vite)', 'SharpJS', 'Zod', 'Zustand', 'Redis'],
     site: 'https://www.preebee.com/',
     appStore: undefined,
     googlePlay: undefined,
@@ -25,6 +58,7 @@ export const projects = [
   {
     title: 'Cricutny',
     subtitle: 'Eccomerce website // Admin dashboard // Staff dashboard',
+    date: 'May 2024 - June 2024 (Maintained)',
     underDevelopment: false,
     by: 'odesign',
     description:
@@ -42,10 +76,12 @@ export const projects = [
       '/screenshots/cricutny/cricutny7.webm',
     ],
     site: 'https://www.cricutny.com/',
+    technologies: ['RemixJS', 'PrismaJS (MySQL)', 'GSAP', 'TailwindCSS', 'Playwright', 'KonvaJS', 'QuillJS', 'Stripe', 'Lottie', 'SharpJS', 'SwiperJS', 'SWR', 'Redis']
   },
   {
     title: 'So Pawlicious',
     subtitle: 'Eccomerce website // Admin dashboard // Staff dashboard',
+    date: 'August 2023 - October 2023',
     underDevelopment: false,
     by: 'odesign',
     description:
@@ -63,10 +99,12 @@ export const projects = [
       '/screenshots/so_pawlicious/recording.mp4',
     ],
     site: 'https://sopawlicious.com/',
+    technologies: ['ExpressJS', 'Typescript React (Vite)', 'SwiperJS', 'ReactSpring', 'UnoCSS', 'Zustand', 'EditorJS', 'AWS (Amazon Web Services)', 'Redis', 'PassportJS', 'Zod', 'SharpJS', 'Sequelize (MySQL)']
   },
   {
     title: 'ummit',
     subtitle: 'Eccomerce website // Creator dashboard // Admin dashboard',
+    date: 'December 2023 - March 2024',
     by: 'odesign',
     description:
       'Platform where you can buy and sell DvDs. Paired with high class dashboard. Everyone can join and sell their DvDs then get paid.',
@@ -86,6 +124,7 @@ export const projects = [
       '/screenshots/ummit/Screencast from 2023-07-26 15-08-15.webm',
       '/screenshots/ummit/Screencast from 2023-07-26 15-11-23.webm',
     ],
+    technologies: ['RemixJS', 'EditorJS', 'HookstateJS', 'i18next', 'Redis', 'SharpJS', 'Socket.io', 'SwiperJS', 'Zod', 'BunJS', 'MonerisPayment']
   },
   {
     title: 'Web Browser',
@@ -106,5 +145,6 @@ export const projects = [
         by: `Giorgi Lekiashvili, CEO at Best Shop Group, Georgia`,
       },
     ],
+    technologies: ['ElectronJS', 'Typescript']
   },
 ]

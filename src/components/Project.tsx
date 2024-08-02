@@ -75,6 +75,7 @@ export default function Project(props: ProjectProps): ReactElement {
         </div>
         <ProjectInfo
           projectInfoClassName={props.data.projectInfoClassName}
+          date={props.data.date}
           reviews={props.data.reviews || []}
           underDevelopment={props.data.underDevelopment}
           title={props.data.title}
@@ -82,6 +83,7 @@ export default function Project(props: ProjectProps): ReactElement {
           by={props.data.by}
           href={props.data.site}
           description={props.data.description}
+          technologies={props.data.technologies}
         />
         <div className='col-span-2 text-center my-auto ml-5'>
           {props.data.googlePlay && (
