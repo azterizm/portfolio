@@ -62,6 +62,9 @@ h1 {
 button {
   white-space: nowrap;
 }
+button:focus {
+  outline-offset: 2px;
+}
 
 #google_play_button {
   transform: translate(-15px, 5px) scale(1.3);

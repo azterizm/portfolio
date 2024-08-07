@@ -27,6 +27,33 @@ export const projects = [
     projectInfoClassName: ''
   },
   {
+    title: "Eros Marketplace",
+    subtitle: "ERP system",
+    underDevelopment: false,
+    date: "Feb 2024",
+    by: "azterizm",
+    description: "A complete ERP system comprising four apps: Marketplace, Seller Dashboard, Rider Dashboard, and Owner Dashboard, each with its own URL for dedicated access and management.",
+    logo: "/logos/eros.svg",
+    images: [
+      '/screenshots/eros/image1.png',
+      '/screenshots/eros/image2.png',
+      '/screenshots/eros/image3.png',
+      '/screenshots/eros/image4.png',
+      '/screenshots/eros/image5.png',
+      '/screenshots/eros/image6.png',
+      '/screenshots/eros/image7.png',
+      '/screenshots/eros/image8.png',
+      '/screenshots/eros/image9.png',
+      '/screenshots/eros/image10.png',
+      '/screenshots/eros/image11.jpeg'
+    ],
+    technologies: ["KitaJS", "HTMX", "AlpineJS", 'FastifyJS','DaisyUI', 'RemixJS'],
+    site: [
+      'https://eros-marketplace.obad.work/',
+      'https://eros-seller.obad.work/'
+    ]
+  },
+  {
     title: 'Preebee',
     subtitle: 'selling platform',
     underDevelopment: false,
@@ -34,7 +61,7 @@ export const projects = [
     by: 'azterizm',
     description:
       'Make your life easier by opening your own shop and selling with full management.',
-    logo: 'https://www.preebee.com/logo.svg',
+    logo: '/logos/preebee.svg',
     images: [
       '/screenshots/preebee/preebee1.png',
       '/screenshots/preebee/preebee2.png',

@@ -1,7 +1,7 @@
 import { useHookstate } from '@hookstate/core'
 import classNames from 'classnames'
-import { motion } from 'framer-motion'
-import { ReactElement, useEffect, useRef } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ReactElement, useEffect, useRef, useState } from 'react'
 import {
   canNavigateState,
   seeMoreState,
@@ -16,7 +16,7 @@ export interface ProjectProps {
   date?: string
   by: string
   description: string
-  href?: string
+  href?: string | string[]
   reviews: { content: string; by: string }[]
   underDevelopment?: boolean
   projectInfoClassName?: string
@@ -29,6 +29,7 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
   const seeReviews = useHookstate(seeReviewsState)
   const canNavigate = useHookstate(canNavigateState)
   const containerRef = useRef<HTMLDivElement>(null)
+  const [showSites, setShowSites] = useState(false)
 
   useEffect(() => {
     if (containerRef.current) {
@@ -71,30 +72,55 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
       {props.underDevelopment
         ? <motion.h4 animate={{ opacity: seeMore.value ? 0 : 1 }} className='text-xs'>Under development</motion.h4>
         : null}
-      <motion.p
-        onMouseOver={() => canNavigate.set(false)}
-        onMouseOut={() => canNavigate.set(true)}
-        onMouseLeave={() => canNavigate.set(true)}
-        animate={{ opacity: seeMore.value ? 0 : 1 }}
-        className='text-neutral-800 max-w-sm mt-2'>{props.description}</motion.p>
-      {props.technologies?.length ? (
-        <motion.div animate={{ opacity: seeMore.value ? 0 : 1 }} className="mt-4">
-          <h3 className='text-md'>Technologies</h3>
-          <div className="flex text-sm items-center gap-y-0 gap-x-2 flex-wrap max-w-[30rem]">
-            {props.technologies.map((r, i) => (
-              <p key={i}>{r}</p>
+      <AnimatePresence initial={false} mode='popLayout'>
+        {showSites && Array.isArray(props.href) ? (
+          <motion.div key='sites' initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
+            {props.href.map((r, i) => (
+              <button
+                className={classNames(
+                  'group active:scale-90 scale-100 transition-transform duration-500',
+                  'block mt-4',
+                  seeMore.value ? 'absolute bottom-0' : 'relative '
+                )}
+                onClick={() => window.open(r, '_blank')}
+              >
+                Site{' '}{i + 1}
+                <div className='absolute -bottom-1 left-0 w-full h-1 bg-black scale-x-100 group-hover:scale-x-0 origin-left transition-transform duration-500' />
+              </button>
             ))}
-          </div>
-        </motion.div>
-      ) : null}
-      <div className='flex items-center gap-4 overflow-hidden'>
+          </motion.div>
+        ) : (
+          <motion.div key='info' initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
+            <motion.p
+              onMouseOver={() => canNavigate.set(false)}
+              onMouseOut={() => canNavigate.set(true)}
+              onMouseLeave={() => canNavigate.set(true)}
+              animate={{ opacity: seeMore.value ? 0 : 1 }}
+              className='text-neutral-800 max-w-sm mt-2'>{props.description}</motion.p>
+            {
+              props.technologies?.length ? (
+                <motion.div animate={{ opacity: seeMore.value ? 0 : 1 }} className="mt-4">
+                  <h3 className='text-md'>Technologies</h3>
+                  <div className="flex text-sm items-center gap-y-0 gap-x-2 flex-wrap max-w-[30rem]">
+                    {props.technologies.map((r, i) => (
+                      <p key={i}>{r}</p>
+                    ))}
+                  </div>
+                </motion.div>
+              ) : null
+            }
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className='flex items-center gap-4 overflow-hidden relative'>
         <motion.button
           initial={false}
           animate={{ y: seeReviews.value ? 50 : 0 }}
           className={classNames(
             'group active:scale-90 scale-100 transition-transform duration-500',
             'block my-4',
-            seeMore.value ? 'absolute bottom-0' : 'relative '
+            'relative'
           )}
           onClick={onSelect}
         >
@@ -117,7 +143,7 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
             </motion.button>
           )
           : null}
-        {props.href
+        {props.href?.length
           ? (
             <motion.button
               initial={false}
@@ -127,14 +153,14 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
                 'block my-4',
                 seeMore.value ? 'absolute bottom-0 left-20' : 'relative '
               )}
-              onClick={() => window.open(props.href, '_blank')}
+              onClick={() => typeof props.href === 'string' ? window.open(props.href, '_blank') : setShowSites(e => !e)}
             >
-              Visit site
+              {typeof props.href === 'string' ? 'Visit site' : `${!showSites ? 'Show' : 'Collapse'} sites`}
               <div className='absolute -bottom-1 left-0 w-full h-1 bg-black scale-x-100 group-hover:scale-x-0 origin-left transition-transform duration-500' />
             </motion.button>
           )
           : null}
       </div>
-    </div>
+    </div >
   )
 }

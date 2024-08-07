@@ -14,11 +14,10 @@ export default function About(): ReactElement {
         <h1>Abdullah</h1>
         <h1>Memon</h1>
       </div>
-      <p className='text-lg font-medium'>Freelance web and mobile developer</p>
+      <p className='text-lg font-medium'>Freelance full-stack web developer</p>
       <p className='text-lg max-w-md mt-2'>
         It all started from a line of code. Now I have grown into a full-stack
-        developer who can also design. I can develop in all platforms like
-        mobile, desktop, and the web. I am contuinusly sharpening my skills and
+        developer who can also design. I am contuinusly sharpening my skills and
         staying on top of the latest trends.{' '}
       </p>
       <div
