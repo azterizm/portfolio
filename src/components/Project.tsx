@@ -84,6 +84,7 @@ export default function Project(props: ProjectProps): ReactElement {
           href={props.data.site}
           description={props.data.description}
           technologies={props.data.technologies}
+          projectLink={props.data.projectLink}
         />
         <div className='col-span-2 text-center my-auto ml-5'>
           {props.data.googlePlay && (

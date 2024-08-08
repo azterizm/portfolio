@@ -20,6 +20,7 @@ export interface ProjectProps {
   reviews: { content: string; by: string }[]
   underDevelopment?: boolean
   projectInfoClassName?: string
+  projectLink?: string
   technologies?: string[]
 }
 
@@ -65,7 +66,7 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
       {props.subtitle
         ? (
           <motion.h2 animate={{ opacity: seeMore.value ? 0 : 1 }} className='normal-case text-neutral-800 mt-4 text-lg leading-none sm:whitespace-nowrap text-2xl'>
-            {props.subtitle[0].toUpperCase() + props.subtitle.slice(1)}
+            {props.subtitle[0].toUpperCase() + props.subtitle.slice(1)}{' '}{props.projectLink? <span className='text-sm text-neutral-500'>(open source)</span> : null}
           </motion.h2>
         )
         : null}
@@ -160,6 +161,21 @@ export default function ProjectInfo(props: ProjectProps): ReactElement {
             </motion.button>
           )
           : null}
+        {props.projectLink ? (
+          <motion.button
+            initial={false}
+            animate={{ opacity: seeMore.value ? 0 : 1 }}
+            className={classNames(
+              'group active:scale-90 scale-100 transition-transform duration-500',
+              'block my-4',
+              'relative'
+            )}
+            onClick={() => window.open(props.projectLink, '_blank')}
+          >
+            Open code repository
+            <div className='absolute -bottom-1 left-0 w-full h-1 bg-black scale-x-100 group-hover:scale-x-0 origin-left transition-transform duration-500' />
+          </motion.button>
+        ) : null}
       </div>
     </div >
   )

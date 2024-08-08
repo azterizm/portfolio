@@ -22,9 +22,11 @@ export const projects = [
     ],
     technologies: ['RemixJS', 'PrismaJS (MySQL)', 'Framer Motion', 'TailwindCSS', 'Zod', 'Redis', 'Playwright'],
     site: 'https://zed.obad.work/',
+    projectLink: 'https://github.com/azterizm/zed-clothing',
     appStore: undefined,
     googlePlay: undefined,
     projectInfoClassName: ''
+
   },
   {
     title: "Eros Marketplace",
@@ -47,11 +49,12 @@ export const projects = [
       '/screenshots/eros/image10.png',
       '/screenshots/eros/image11.jpeg'
     ],
-    technologies: ["KitaJS", "HTMX", "AlpineJS", 'FastifyJS','DaisyUI', 'RemixJS'],
+    technologies: ["KitaJS", "HTMX", "AlpineJS", 'FastifyJS', 'DaisyUI', 'RemixJS'],
     site: [
       'https://eros-marketplace.obad.work/',
       'https://eros-seller.obad.work/'
-    ]
+    ],
+    projectLink: 'https://github.com/azterizm/preebee-old'
   },
   {
     title: 'Preebee',
@@ -80,12 +83,13 @@ export const projects = [
     site: 'https://www.preebee.com/',
     appStore: undefined,
     googlePlay: undefined,
-    projectInfoClassName: ''
+    projectInfoClassName: '',
+    projectLink: 'https://github.com/azterizm/preebee'
   },
   {
     title: 'Cricutny',
     subtitle: 'Eccomerce website // Admin dashboard // Staff dashboard',
-    date: 'May 2024 - June 2024 (Maintained)',
+    date: 'May 2024 - Present (Maintained)',
     underDevelopment: false,
     by: 'odesign',
     description:
