@@ -17,7 +17,7 @@ export default function About(): ReactElement {
       <p className='text-lg font-medium'>Freelance full-stack web developer</p>
       <p className='text-lg max-w-md mt-2'>
         It all started from a line of code. Now I have grown into a full-stack
-        developer who can also design. I am contuinusly sharpening my skills and
+        developer who can also design. I am continuously sharpening my skills and
         staying on top of the latest trends.{' '}
       </p>
       <div
@@ -66,6 +66,37 @@ export default function About(): ReactElement {
         >
           Freelancer
         </Button>
+        <Button
+          onClick={() =>
+            window.open('https://instagram.com/azterizm', '_blank')}
+        >
+          Instagram
+        </Button>
+        <Button
+          onClick={() =>
+            window.open('https://www.linkedin.com/in/abdullah-memon-9565352a5/', '_blank')}
+        >
+          LinkedIn
+        </Button>
+        <Button
+          onClick={() =>
+            window.open('https://twitter.com/azterizm', '_blank')}
+        >
+          Twitter (X)
+        </Button>
+        <Button
+          onClick={() =>
+            window.open('https://www.behance.net/abdielprime', '_blank')}
+        >
+          Behance
+        </Button>
+        <Button
+          onClick={() =>
+            window.open('https://dribbble.com/abdielprime', '_blank')}
+        >
+          Dribbble
+        </Button>
+
       </motion.div>
       <motion.span
         animate={{ opacity: showAbout.value ? 1 : 0 }}
