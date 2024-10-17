@@ -1,5 +1,26 @@
 export const projects = [
   {
+    title: "Clever Page",
+    subtitle: "AI Writing Assistant",
+    description: "Supercharge your writing with AI-powered tools. Edit, improve, and create with ease.",
+    underDevelopment: false,
+    date: "October 2024",
+    by: "odesign",
+    logo: "/logos/clever_page.png",
+    images: [
+      '/screenshots/clever_page/screenshot-1.png',
+      '/screenshots/clever_page/screenshot-2.png',
+      '/screenshots/clever_page/screenshot-3.png',
+      '/screenshots/clever_page/screenshot-4.png',
+      '/screenshots/clever_page/screenshot-5.png',
+      '/screenshots/clever_page/screenshot-6.png',
+      '/screenshots/clever_page/screenshot-7.png',
+      '/screenshots/clever_page/screenshot-8.png',
+    ],
+    technologies: ['OpenAI', 'ExpressJS', 'Prisma', 'Redis', "KitaJS", 'StripeJS', 'DaisyUI', 'JQuery', 'GSAP'],
+    site: "https://clever.page/",
+  },
+  {
     title: 'Zed Clothing',
     subtitle: 'clothing brand',
     underDevelopment: false,
@@ -26,7 +47,6 @@ export const projects = [
     appStore: undefined,
     googlePlay: undefined,
     projectInfoClassName: ''
-
   },
   {
     title: "Eros Marketplace",
